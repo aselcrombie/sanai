@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f0f0f;
+  --foreground: #ededed;
+  --pastel-lavender: #C8B6FF;
+  --pastel-pink: #F8C8DC;
+  --pastel-sage: #B7E4C7;
+  --pastel-beige: #F3E5AB;
+  --pastel-sky: #A9D6E5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iPhone safe area */
+@supports (padding: max(0px)) {
+  .safe-area-inset-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* AI loading shimmer */
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Image upload placeholder card shimmer */
+@keyframes card-shimmer {
+  0%, 100% { background-color: rgb(39 39 42 / 0.6); }
+  50% { background-color: rgb(63 63 70 / 0.8); }
+}
+
+.animate-card-shimmer {
+  animation: card-shimmer 1.8s ease-in-out infinite;
+}
